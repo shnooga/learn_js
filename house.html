@@ -1,0 +1,34 @@
+<HTML>
+  <HEAD>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script type="text/JavaScript" src="house.js"> </script>
+    <STYLE>
+      h1 {
+        color: black;
+        text-align: center;
+        font-weight: 300;
+      }
+      .code{color: green;}
+    </STYLE>
+  </HEAD>
+  <H1> Rudimentary javascript class instantiaton </H1>
+  <DIV class='code'>
+    <br>
+    <br>
+    function House(address, rooms, price, garage) { <br>
+    this.address=address; <br>
+    this.rooms=rooms;<br>
+    this.price=price;<br>
+    this.garage=garage;<br><br>
+    this.view = function() {<br>
+    document.write(this.address + ' has '+ this.rooms+' rooms, '+(this.garage?'a':'no')+' garage, and costs $' + this.price);<br>
+    }<br><br>
+
+    this.totalCost = function() {<br>
+    document.write('Total cost is: $' + eval(this.price + this.price * this.PROPERTY_TAX));<br>
+    }<br>
+    }<br>
+    House.prototype.PROPERTY_TAX= .01;<br>
+
+  </DIV>
+</HTML>

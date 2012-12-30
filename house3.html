@@ -1,0 +1,39 @@
+<HTML>
+  <HEAD>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script type="text/JavaScript" src="house3.js"> </script>
+    <STYLE>
+      h1 {
+        color: black;
+        text-align: center;
+        font-weight: lighter;
+      }
+      .code{color: green;}
+      .codeHiLite{color: red;}
+    </STYLE>
+  </HEAD>
+  <H1> Javascript class/struct with public properties and method
+    <br> (efficient mem usage via prototype method and static property, PROPERTY_TAX)
+  </H1>
+  <BODY>
+    <DIV class='code'>
+      function House(address, rooms, price, hasGarage) {<br>
+      this.address = address;<br>
+      this.rooms = rooms;<br>
+      this.price = price;<br>
+      this.hasGarage = hasGarage;<br>
+      }<br>
+
+      <div class='codeHilite'>
+      House.PROPERTY_TAX= .01;<br>
+      House.prototype.view = function() {<br>
+      document.write(this.address + ' has '+ this.rooms +' rooms, '+(this.hasGarage ? 'a' : 'no')+' garage, and costs $' + this.price);<br>
+      }<br>
+
+      House.prototype.totalCost = function() {<br>
+      document.write('Total cost is: $' + eval(this.price + this.price * House.PROPERTY_TAX));<br>
+      }
+    </div>
+    </DIV>
+  </BODY>
+</HTML>

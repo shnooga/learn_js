@@ -1,0 +1,50 @@
+<HTML>
+  <HEAD>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script type="text/JavaScript" src="house2.js"> </script>
+    <STYLE>
+      h1 {
+        color: black;
+        text-align: center;
+        font-weight: 300;
+      }
+      .code{color: green;}
+    </STYLE>
+  </HEAD>
+  <H1> Javascript class with private properties and public accessors <br> (at the cost of inefficent mem usage regarding methods)</H1>
+  <DIV class='code'>
+    <br>
+    <br>
+function House(address, rooms, price, garage) {<br>
+  var _address = address;<br>
+  var _rooms = rooms;<br>
+  var _price = price;<br>
+  var _garage = garage;<br><br>
+
+  function getAddress() { return _address; } <br>
+
+  function getRooms() { return _rooms; }<br>
+
+  function getPrice() { return _price; }<br>
+
+  function hasGarage() { return _garage; }<br><br>
+
+  // Expose only these methods
+  return {<br>
+    getAddress: getAddress,<br>
+    getRooms: getRooms,<br>
+    getPrice: getPrice,<br>
+    hasGarage: hasGarage,<br>
+  }<br>
+}<br><br>
+
+function view(myHouse) {<br>
+  document.write(myHouse.getAddress() + ' has '+ myHouse.getRooms() +' rooms, '+(myHouse.hasGarage() ? 'a' : 'no')+' garage, and costs $' + myHouse.getPrice());<br>
+}<br><br>
+
+function totalCost(myHouse) { <br>
+  document.write('Total cost is: $' + eval(myHouse.getPrice() + myHouse.getPrice() * myHouse.PROPERTY_TAX));<br>
+}<br>
+
+  </DIV>
+</HTML>
