@@ -1,0 +1,48 @@
+<HTML>
+  <HEAD>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script type="text/JavaScript" src="house4.js"> </script>
+    <STYLE>
+      h1 {
+        color: black;
+        text-align: center;
+        font-weight: lighter;
+      }
+      .code{color: green;}
+      .codePrivate{color: purple;}
+      .codePrivilege{color: blue;}
+    </STYLE>
+  </HEAD>
+  <H1> Javascript class/struct with public properties and method
+    <br> (efficient mem usage via prototype method and static property, PROPERTY_TAX)
+  </H1>
+  <BODY>
+    <DIV class='code'>
+      function House(address, rooms, price, hasGarage) {<br>
+      <div class='codePrivate'>
+    // Private member<br>
+    var _address = address;<br>
+    var _rooms = rooms;<br>
+    var _price = price;<br>
+    var _hasGarage = hasGarage;<br>
+
+    // Private method<br>
+    function priv_view() {<br>
+      return _address + ' has '+ _rooms +' rooms, ' + (_hasGarage ? 'a' : 'no') + ' garage, and costs $' + _price;<br>
+    }<br><br>
+    </div>
+      <div class='codePrivilege'>
+  // Privilege method<br>
+  this.view = function() {<br>
+    document.write(priv_view());<br>
+  }<br><br>
+  this.totalCost = function() {<br>
+      document.write('Total cost is: $' + eval(_price + _price * House.PROPERTY_TAX));<br>
+  }<br>
+      }<br>
+
+      House.PROPERTY_TAX= .01;<br>
+    </div>
+    </DIV>
+  </BODY>
+</HTML>
