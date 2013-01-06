@@ -1,23 +1,24 @@
 function House(address, rooms, price, garage) {
-    this.address=address;
-    this.rooms=rooms;
-    this.price=price;
-    this.garage=garage;
+  // Public properties
+  this.address=address;
+  this.rooms=rooms;
+  this.price=price;
+  this.garage=garage;
+}
 
-    this.view = function() {
-      document.write(this.address + ' has '+ this.rooms+' rooms, '+(this.garage?'a':'no')+' garage, and costs $' + this.price+'<BR>');
-    }
+function view(aHouse) {
+  document.write(aHouse.address + ' has '+ aHouse.rooms+' rooms, '+(aHouse.garage?'a':'no')+' garage, and costs $' + aHouse.price+'<BR>');
+}
 
-    this.totalCost = function() {
-      document.write('Total cost is: $' + eval(this.price + this.price * this.PROPERTY_TAX) +'<BR>');
-    }
+function totalCost(aHouse) {
+  document.write('Total cost is: $' + eval(aHouse.price + aHouse.price * aHouse.PROPERTY_TAX) +'<BR>');
 }
 House.prototype.PROPERTY_TAX= .01;
 
-house1 = new House('12 Oak ave', 4, 25000, false);
-house1.view();
-house1.totalCost();
+house1 = new House('777 Sesame St', 4, 25000, false);
+view(house1);
+totalCost(house1);
 
 house2 = new House('35 MLK drv', 2, 12000, true);
-house2.view();
-house2.totalCost();
+view(house2);
+totalCost(house2);

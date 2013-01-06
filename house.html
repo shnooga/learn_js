@@ -19,14 +19,14 @@
     this.address=address; <br>
     this.rooms=rooms;<br>
     this.price=price;<br>
-    this.garage=garage;<br><br>
-    this.view = function() {<br>
-    document.write(this.address + ' has '+ this.rooms+' rooms, '+(this.garage?'a':'no')+' garage, and costs $' + this.price);<br>
+    this.garage=garage;<br>
+    }<br><br>
+    function view(aHouse) {<br>
+    document.write(aHouse.address + ' has '+ aHouse.rooms+' rooms, '+(aHouse.garage?'a':'no')+' garage, and costs $' + aHouse.price);<br>
     }<br><br>
 
-    this.totalCost = function() {<br>
-    document.write('Total cost is: $' + eval(this.price + this.price * this.PROPERTY_TAX));<br>
-    }<br>
+    function totalCost(aHouse) {<br>
+    document.write('Total cost is: $' + eval(aHouse.price + aHouse.price * aHouse.PROPERTY_TAX));<br>
     }<br>
     House.prototype.PROPERTY_TAX= .01;<br>
 
